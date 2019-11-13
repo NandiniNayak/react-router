@@ -3,12 +3,19 @@ import react, {useState} from "React";
 const nandIsCool = 
 [
 {
-  arthur: "is a legend, its",
+  name: "arthur",
+  description: "is a legend",
   boolean: true
 },
 {
-  nands: "is also a legend, its sooo",
+  name: "nand",
+  description: "is THE legend",
   boolean: true
+},
+{
+  name: "mariam",
+  description: "is not a legend",
+  boolean: false
 }
 ]
 
@@ -19,6 +26,13 @@ const [isCool, setIsCool] = useState("")
 return(
 <>
   <p>I'm doing nothing at work :(</p>
+   
+  {
+    nandIsCool.map(item => {
+      item.name item.boolean
+    })
+  }
+  
 </>
 )
 }
