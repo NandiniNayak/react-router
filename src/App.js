@@ -22,10 +22,10 @@ class App extends Component {
            <Route exact path="/" component={HomePage} />
            <Route exact path="/category" 
           //  render takes a function thats passes props to child component
-                render={props => <CategorySelection categories={categories} {...props} />}
+                render={routeProps => <CategorySelection categories={categories} {...routeProps} />}
            />
            <Route exact path="/new/:id" 
-            render={props => <NewEntry categories={categories} {...props} />}
+            render={routeProps => <NewEntry categories={categories} {...routeProps} />}
            />
         </BrowserRouter>
       </div>

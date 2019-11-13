@@ -9,21 +9,34 @@ export default class NewEntry extends Component {
     constructor(props) {
         super(props)
         console.log(props)
-        let {id} = props.match.params;
-        console.log(id);
+        this.state = {
+            errorMessage: "",
+            category: ""
+        }
     }
-    // componentDidMount() {
-    //     // console.log(this.props)
-    //     const { id } = this.props.match.params
-    //     console.log(id)
-    // }
+    // executes after render: set the state here
+    componentDidMount(){
+        let { id } = this.props.match.params;
+        let category = this.props.categories[id]
+        if(!category){
+            return this.setState({errorMessage: "Invalid Category"})
+        }else {
+            return this.setState({category})
+        }
+    }
 
     render() {
-        // let id = getId;
-    
+        const {errorMessage, category} = this.state
         return (
             <div>
-                <h1> Make an Entry to Food Category </h1>
+                {errorMessage}
+                {/* conditionally render content baserd on category value */}
+                {category &&
+                // <div>
+                    <h1> Make an Entry to {category} Category </h1>
+                //     {/* <EntryForm /> */}
+                // <div>
+                }
             </div>
         )
     }
